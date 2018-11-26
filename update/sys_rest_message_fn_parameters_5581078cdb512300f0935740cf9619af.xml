@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters">
+    <sys_rest_message_fn_parameters action="INSERT_OR_UPDATE">
+        <name>base_endpoint</name>
+        <rest_message_function display_value="post">3741838cdb512300f0935740cf961985</rest_message_function>
+        <sys_class_name>sys_rest_message_fn_parameters</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-17 12:00:26</sys_created_on>
+        <sys_id>5581078cdb512300f0935740cf9619af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>base_endpoint</sys_name>
+        <sys_package display_value="Basic Support Desk" source="x_279371_basic_sup">2f2e228cdb112300f0935740cf96192e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Basic Support Desk">2f2e228cdb112300f0935740cf96192e</sys_scope>
+        <sys_update_name>sys_rest_message_fn_parameters_5581078cdb512300f0935740cf9619af</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-10-17 12:00:26</sys_updated_on>
+        <type>string</type>
+        <value>https://intimetec.atlassian.net</value>
+    </sys_rest_message_fn_parameters>
+</record_update>

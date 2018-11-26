@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>incident</collection>
+        <condition>current.correlation_display == JiraIntegrationNew.prototype.CORRELATION_DISPLAY   &amp;&amp; gs.getProperty("x_279371_basic_sup.enable_integration")=="true"</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>JiraIntegration - ModifyIssue</name>
+        <order>100</order>
+        <priority>200</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[if( current.short_description.changes() ||
+   current.subcategory.changes() ||
+current.priority.changes())
+{
+   var j = new JiraIntegrationNew();
+   
+   j.debug("Incident changed....modify the Jira Issue");
+   
+   
+   
+   var issue = new Object();
+   issue.fields = new Object();
+   issue.fields.summary = ""+current.short_description;
+   issue.fields.issuetype = new Object();
+   issue.fields.issuetype.name=""+current.subcategory;
+   issue.fields.priority = new Object();
+   issue.fields.priority.id = j.getJiraPriority(""+current.priority);
+
+   
+//    if(j.verbose == "true"){
+//       JSUtil.logObject(issue);
+//    }
+   
+   j.debug("Jira fields set.  Ready to modify issue in Jira");
+   var jiraIssue = j.modifyIssue(issue, current.correlation_id);
+   if(jiraIssue.getStatusCode()!="204"){
+      current.work_notes = "ERROR posting changes back to Jira.";
+   }
+   
+}]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-18 09:38:00</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5f4a27d8db1d2300f0935740cf9619df</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>JiraIntegration - ModifyIssue</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Basic Support Desk" source="x_279371_basic_sup">2f2e228cdb112300f0935740cf96192e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Basic Support Desk">2f2e228cdb112300f0935740cf96192e</sys_scope>
+        <sys_update_name>sys_script_5f4a27d8db1d2300f0935740cf9619df</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-11-26 06:22:11</sys_updated_on>
+        <template/>
+        <when>async</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=5f4a27d8db1d2300f0935740cf9619df"/>
+</record_update>

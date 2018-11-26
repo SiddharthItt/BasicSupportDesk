@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_auth_profile_basic">
+    <sys_auth_profile_basic action="INSERT_OR_UPDATE">
+        <name>basic_simple</name>
+        <password>We81FmaJjgcjGz27UOez+g==</password>
+        <sys_class_name>sys_auth_profile_basic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-17 11:58:33</sys_created_on>
+        <sys_id>d811cf4cdb512300f0935740cf961985</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>basic_simple</sys_name>
+        <sys_package display_value="Basic Support Desk" source="x_279371_basic_sup">2f2e228cdb112300f0935740cf96192e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Basic Support Desk">2f2e228cdb112300f0935740cf96192e</sys_scope>
+        <sys_update_name>sys_auth_profile_basic_d811cf4cdb512300f0935740cf961985</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-10-17 11:58:33</sys_updated_on>
+        <username>siddharth.agarwal</username>
+    </sys_auth_profile_basic>
+</record_update>

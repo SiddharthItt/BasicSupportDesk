@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>incident</collection>
+        <condition>current.category.getDisplayValue()=="Jira Issue"   &amp;&amp; gs.getProperty("x_279371_basic_sup.enable_integration")=="true"</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>JiraIntegration - CreateIssue</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[//var j = new global.JiraIntegration();
+// current.category.getDisplayValue()=="Jira Issue"   && gs.getProperty("com.snc.integration.jira.enable_integration")=="true"
+var j = new JiraIntegrationNew();
+j.debug("New Incident of Category 'Jira Issue'...create a Jira Issue");
+
+  
+
+var issue = new Object();
+issue.fields = new Object();
+issue.fields.project = new Object();
+issue.fields.project.key = gs.getProperty("x_279371_basic_sup.project");
+issue.fields.summary = ""+current.short_description;
+issue.fields.description = ""+current.short_description;
+issue.fields.issuetype = new Object();
+issue.fields.issuetype.name=""+current.subcategory;
+issue.fields['customfield_'+j.sysidField] = j.getSysIdPrefix()+":"+current.sys_id;
+issue.fields.priority = new Object();
+issue.fields.priority.id = j.getJiraPriority(""+current.priority);
+
+// if(j.verbose == "true"){
+//    JSUtil.logObject(issue);
+// }
+
+j.debug("Jira fields set.  Ready to create issue in Jira");
+var jiraIssue = j.createIssue(issue);
+j.debug("Jira issue created: " + jiraIssue.self);
+
+current.correlation_id = jiraIssue.key;
+current.correlation_display = j.CORRELATION_DISPLAY;
+
+var wn = "A corresponding JIRA Issue has been created:\n";
+wn += "ID: "+jiraIssue.id+"\n";
+wn += "Issue Number: "+jiraIssue.key+"\n";
+wn += "Issue URL: "+gs.getProperty('x_279371_basic_sup.base_jira_instance_url')+"/browse/"+jiraIssue.key+"\n";
+current.work_notes = wn;
+current.update();
+
+j.addExistingComments(current.sys_id, current.correlation_id);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-17 11:12:36</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>8e76f644db512300f0935740cf96192f</sys_id>
+        <sys_mod_count>36</sys_mod_count>
+        <sys_name>JiraIntegration - CreateIssue</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Basic Support Desk" source="x_279371_basic_sup">2f2e228cdb112300f0935740cf96192e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Basic Support Desk">2f2e228cdb112300f0935740cf96192e</sys_scope>
+        <sys_update_name>sys_script_8e76f644db512300f0935740cf96192f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-11-22 11:30:07</sys_updated_on>
+        <template/>
+        <when>async</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=8e76f644db512300f0935740cf96192f"/>
+</record_update>

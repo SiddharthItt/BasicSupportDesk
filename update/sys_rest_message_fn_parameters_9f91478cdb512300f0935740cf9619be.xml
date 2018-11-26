@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters">
+    <sys_rest_message_fn_parameters action="INSERT_OR_UPDATE">
+        <name>issuebody</name>
+        <rest_message_function display_value="post">3741838cdb512300f0935740cf961985</rest_message_function>
+        <sys_class_name>sys_rest_message_fn_parameters</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-17 12:01:04</sys_created_on>
+        <sys_id>9f91478cdb512300f0935740cf9619be</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>issuebody</sys_name>
+        <sys_package display_value="Basic Support Desk" source="x_279371_basic_sup">2f2e228cdb112300f0935740cf96192e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Basic Support Desk">2f2e228cdb112300f0935740cf96192e</sys_scope>
+        <sys_update_name>sys_rest_message_fn_parameters_9f91478cdb512300f0935740cf9619be</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-10-18 06:11:28</sys_updated_on>
+        <type>xml</type>
+        <value> {"fields":{"customfield_12418":"dev34818:7a5af61cdb992300f0935740cf9619ab","description":"testing","issuetype":{"name":"Task"},"priority":{"id":"5"},"project":{"key":"SER"},"summary":"testing"}}</value>
+    </sys_rest_message_fn_parameters>
+</record_update>
